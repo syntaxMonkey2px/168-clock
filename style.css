@@ -1,0 +1,137 @@
+:root{
+    --font-1: "Zain", sans-serif, system-ui;
+    --font-2: system-ui;
+}
+
+html{
+    background: linear-gradient(
+        0deg,
+        rgb(10, 30, 90) 0%,  /* Deep navy blue */
+        rgb(0, 100, 50) 100% /* Rich emerald green */
+    );
+    /* height: 100%;
+    width: 100%; */
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0%{background-position: 50% 0%}
+    50%{background-position: 50% 80%}
+    100%{background-position: 50% 0%}
+    
+}
+
+.app{
+    margin-top: 5em;
+}
+
+.description-container{
+    display: block;
+    width: 100%;
+    font-family:Arial, Helvetica, sans-serif, system-UI;
+    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */    text-shadow: 0px 0px 1em rgba(0, 0, 0, 1); /* Slightly darker shadow */
+}
+
+
+.window-text-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+
+}
+.description-container>*{
+    width: 100%;
+    flex-basis: 39%;
+    font-family: var(--font-2);
+    text-align: center;
+    gap: 0.5em;
+
+}
+
+#window-greet{
+    font-weight: 600;
+}
+
+#window-description{
+    font-size: 2em;
+    letter-spacing: 0.02em;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.clock{
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    /* outline: 13px solid rgb(5, 1, 1); */
+    border-radius: 50%;
+    box-shadow: 0 15px 15px rgba(23, 23, 23, 0.8);  /* outer glow */
+    /* Add subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clock img{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    border-radius: 50%;
+    
+}
+
+.clock-overlay{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(236, 234, 224, 0.2); /* Golden yellow */    
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(11, 11, 11, 0.797); /* inner highlight */
+    ;
+    /* backdrop-filter: blur(1px); */
+
+
+}
+
+.foodwindow-overlay{
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 0deg,                          /* start at top */
+        rgba(0, 255, 81, 0.66) 0deg,      /* blue starts at 0 */
+        rgba(229, 255, 0, 0.359) 240deg,    /* blue continues to 240 */
+        transparent 240deg                  /* transparent for the rest */
+    );
+    position: relative;
+    z-index: 3;
+    top: 50;
+    right: 0;
+    border-radius: 50%;
+    transform-origin: center; 
+    /* transition: linear 200ms; */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.foodwindow-overlay::before,
+.foodwindow-overlay::after{
+    content:'';
+    width: 3px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom;
+    background-color: rgba(26, 13, 0, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.foodwindow-overlay::before{
+    transform: rotate(0deg);
+}
+.foodwindow-overlay::after{
+    transform: rotate(240deg);
+}
