@@ -5,6 +5,10 @@ console.log(foodWindow);
 
 function moveWindow() {
     console.log('mouse entered')
+    const foodOverlay = document.querySelector('.foodwindow-overlay')
+
+    foodOverlay.style.animation = "none"
+
 }
 
 foodWindow.addEventListener('mouseenter', moveWindow)
@@ -135,6 +139,7 @@ foodWindow.addEventListener('click', function (event) {
 
     greet.innerHTML = greet.innerHTML.replace('...', '')
     greet.style.fontWeight = "400"
+    description.style.display = "block"
     description.innerHTML = `${currentWinText}`
 
 })

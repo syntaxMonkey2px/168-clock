@@ -1,4 +1,4 @@
-# ChronoFeast Timer
+# 16:8 Intermittent Fasting Visualizer
 
 An interactive visual tool for planning intermittent fasting schedules, featuring a unique rotating clock interface for intuitive time window selection.
 

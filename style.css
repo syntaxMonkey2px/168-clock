@@ -1,7 +1,11 @@
 :root{
     --font-1: "Zain", sans-serif, system-ui;
-    --font-2: system-ui;
+    --font-2:'Inter', sans-serif, system-ui;
 }
+/* *{
+    outline: 1px solid red;
+    z-index: 1000;
+} */
 
 html{
     background: linear-gradient(
@@ -9,8 +13,7 @@ html{
         rgb(10, 30, 90) 0%,  /* Deep navy blue */
         rgb(0, 100, 50) 100% /* Rich emerald green */
     );
-    /* height: 100%;
-    width: 100%; */
+    height: 100vh;
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -22,43 +25,88 @@ html{
     
 }
 
+body{
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
 .app{
-    margin-top: 5em;
+ width: 100%;
 }
 
 .description-container{
-    display: block;
+    display: grid;
+    place-items: center;
     width: 100%;
-    font-family:Arial, Helvetica, sans-serif, system-UI;
-    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */    text-shadow: 0px 0px 1em rgba(0, 0, 0, 1); /* Slightly darker shadow */
+    /* Modern font stack */
+    font-family: var(--font-2);
+    /* Better letter spacing */
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */    
+    text-shadow: 0px 0px 1em rgba(0, 0, 0, 1); /* Slightly darker shadow */
 }
 
 
-.window-text-container{
-    display: flex;
-    flex-direction: column;
+#window-text-container{
     font-size: 1.2em;
+    width: 60%;
+    height: 5em;
+        /* Add subtle container styling */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 0.7em 2em 1em 2em;
+    box-shadow: 
+        0px 0px 10px 10px rgba(184, 184, 182, 0.061),
+        inset 5px 5px 20px 20px rgba(19, 19, 19, 0.172);
+     
+    border-radius: 16px;
+        /* Glass effect border */
+    border: 1px solid rgba(70, 67, 67, 0.2);
+    margin: 1em 2em;
+    display: grid;
+    place-items: center;
 
 }
+
 .description-container>*{
     width: 100%;
-    flex-basis: 39%;
     font-family: var(--font-2);
     text-align: center;
-    gap: 0.5em;
+    /* gap: 0.5em; */
 
 }
 
 #window-greet{
-    font-weight: 600;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #window-description{
-    font-size: 2em;
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 600;
+    line-height: 1;
     letter-spacing: 0.02em;
     text-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.3),
         0 0 10px rgba(255, 255, 255, 0.1);
+    display: none;
+}
+/* .spin-instruction {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInOut 2s ease-in-out infinite;
+} */
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
 
 .clock{
@@ -71,7 +119,21 @@ html{
     box-shadow: 0 15px 15px rgba(23, 23, 23, 0.8);  /* outer glow */
     /* Add subtle border */
     border: 1px solid rgba(255, 255, 255, 0.1);
+    /* animation: pulse 500ms ease-in-out infinite; */
+    cursor: grab; /* Shows hand cursor indicating draggable */
 }
+
+.clock:active {
+    cursor: grabbing; /* Changes when clicking */
+}
+
+
+/* @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+} */
+
 
 .clock img{
     width: 100%;
@@ -113,8 +175,17 @@ html{
     transform-origin: center; 
     /* transition: linear 200ms; */
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    animation: subtleRotate 3s ease-in-out infinite;
+    }
+    
+    @keyframes subtleRotate {
+        0% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+        100% { transform: rotate(-10deg); }
+    }
 
-}
+
 
 .foodwindow-overlay::before,
 .foodwindow-overlay::after{
@@ -134,4 +205,15 @@ html{
 }
 .foodwindow-overlay::after{
     transform: rotate(240deg);
+}
+
+@media (max-width: 480px) {
+    h1, #window-description{
+        font-size: 1.2em;
+    }
+
+    #window-greet{
+        font-size: .8em;
+    }
+    
 }
