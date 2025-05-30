@@ -1,17 +1,27 @@
+//ALL HAS BEEN CONVEYED TO JSX
+
+
+
+
+
+
+
 const foodWindow = document.getElementById('foodwindow')
+
+
 
 console.log(foodWindow);
 
 
-function moveWindow() {
-    console.log('mouse entered')
-    const foodOverlay = document.querySelector('.foodwindow-overlay')
+// function moveWindow() {
+//     console.log('mouse entered')
+//     const foodOverlay = document.querySelector('.foodwindow-overlay')
 
-    foodOverlay.style.animation = "none"
+//     foodOverlay.style.animation = "none"
 
-}
+// }
 
-foodWindow.addEventListener('mouseenter', moveWindow)
+// foodWindow.addEventListener('mouseenter', moveWindow)
 
 
 // function clockLocation() {
@@ -28,45 +38,45 @@ foodWindow.addEventListener('mouseenter', moveWindow)
 
 // clockLocation()
 
-let previousDeg = 0
-let rotationCount = 0
+// let previousDeg = 0
+// let rotationCount = 0
 
-function getMouseLocation(event) {
+// function getMouseLocation(event) {
 
-    const clockElement = document.querySelector('.clock')
-    const clockRect = clockElement.getBoundingClientRect()
+//     const clockElement = document.querySelector('.clock')
+//     const clockRect = clockElement.getBoundingClientRect()
 
-    const centerX = clockRect.left + clockRect.width / 2
-    const centerY = clockRect.top + clockRect.height / 2
+//     const centerX = clockRect.left + clockRect.width / 2
+//     const centerY = clockRect.top + clockRect.height / 2
 
-    // Same center point calculation...
-    const mouseX = event.clientX - centerX;
-    const mouseY = event.clientY - centerY;
+//     // Same center point calculation...
+//     const mouseX = event.clientX - centerX;
+//     const mouseY = event.clientY - centerY;
 
-    // Shift to 12 o'clock
-    // degrees = degrees + 90;
-    let angle = Math.atan2(mouseY, mouseX);
-    let degrees = (angle * (180 / Math.PI)) + 90;
+//     // Shift to 12 o'clock
+//     // degrees = degrees + 90;
+//     let angle = Math.atan2(mouseY, mouseX);
+//     let degrees = (angle * (180 / Math.PI)) + 90;
 
 
-    // Normalize the angle to be between 0 and 360 degrees
-    // degrees = (degrees + 360) % 360;
-    if (degrees < previousDeg) {
-        rotationCount++
-    }
+//     // Normalize the angle to be between 0 and 360 degrees
+//     // degrees = (degrees + 360) % 360;
+//     if (degrees < previousDeg) {
+//         rotationCount++
+//     }
 
-    previousDeg = degrees
+//     previousDeg = degrees
 
-    return degrees
-}
+//     return degrees
+// }
 
-foodWindow.addEventListener('mousemove', function (event) {
+// foodWindow.addEventListener('mousemove', function (event) {
 
-    const degrees = getMouseLocation(event)
+//     const degrees = getMouseLocation(event)
 
-    foodWindow.style.transform = `rotate(${degrees}deg)`
+//     foodWindow.style.transform = `rotate(${degrees}deg)`
 
-})
+// })
 
 
 

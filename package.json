@@ -1,0 +1,23 @@
+{
+  "name": "168",
+  "version": "1.0.0",
+  "description": "An interactive visual tool for planning intermittent fasting schedules, featuring a unique rotating clock interface for intuitive time window selection.",
+  "main": "clock.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.0",
+    "vite": "^6.3.5"
+  }
+}

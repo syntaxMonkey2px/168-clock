@@ -1,0 +1,217 @@
+:root{
+    --font-1: "Zain", sans-serif, system-ui;
+    --font-2:'Inter', sans-serif, system-ui;
+}
+/* *{
+    outline: 1px solid red;
+    z-index: 1000;
+} */
+
+html{
+    background: linear-gradient(
+        0deg,
+        rgb(10, 30, 90) 0%,  /* Deep navy blue */
+        rgb(0, 100, 50) 100% /* Rich emerald green */
+    );
+    height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0%{background-position: 50% 0%}
+    50%{background-position: 50% 80%}
+    100%{background-position: 50% 0%}
+    
+}
+
+body{
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.app{
+ width: 100%;
+}
+
+.description-container{
+    
+    display: grid;
+    place-items: center;
+    width: 100%;
+    /* Modern font stack */
+    font-family: var(--font-2);
+    /* Better letter spacing */
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */    
+    text-shadow: 0px 0px 1em rgba(0, 0, 0, 1); /* Slightly darker shadow */
+}
+
+
+.window-text-container{
+    font-size: 1.2em;
+    width: 60%;
+    height: 5em;
+        /* Add subtle container styling */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 0.7em 2em 1em 2em;
+    box-shadow: 
+        0px 0px 10px 10px rgba(184, 184, 182, 0.061),
+        inset 5px 5px 20px 20px rgba(19, 19, 19, 0.172);
+     
+    border-radius: 16px;
+        /* Glass effect border */
+    border: 1px solid rgba(70, 67, 67, 0.2);
+    margin: 1em 2em;
+    display: grid;
+    place-items: center;
+
+}
+
+.description-container>*{
+    width: 100%;
+    font-family: var(--font-2);
+    text-align: center;
+    /* gap: 0.5em; */
+
+}
+
+.window-greet{
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.window-description{
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.clock{
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    /* outline: 13px solid rgb(5, 1, 1); */
+    border-radius: 50%;
+    box-shadow: 0 15px 15px rgba(23, 23, 23, 0.8);  /* outer glow */
+    /* Add subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* animation: pulse 500ms ease-in-out infinite; */
+    cursor: grab; /* Shows hand cursor indicating draggable */
+}
+
+.clock:active {
+    cursor: grabbing; /* Changes when clicking */
+}
+
+
+/* @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+} */
+
+
+.clock img{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    border-radius: 50%;
+    
+}
+
+.clock-overlay{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(236, 234, 224, 0.2); /* Golden yellow */    
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(11, 11, 11, 0.797); /* inner highlight */
+    ;
+    /* backdrop-filter: blur(1px); */
+
+
+}
+
+.foodwindow-overlay{
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 0deg,                          /* start at top */
+        rgba(0, 255, 81, 0.66) 0deg,      /* blue starts at 0 */
+        rgba(229, 255, 0, 0.359) 240deg,    /* blue continues to 240 */
+        transparent 240deg                  /* transparent for the rest */
+    );
+    position: relative;
+    z-index: 3;
+    top: 50;
+    right: 0;
+    border-radius: 50%;
+    transform-origin: center; 
+    /* transition: linear 200ms; */
+    /* transition: transform .1s cubic-bezier(.09,.21,.57,.47); */
+    
+
+    /* line-border of the conic */
+    animation: subtleRotate 3s ease-in-out infinite;
+    }
+    
+    @keyframes subtleRotate {
+        0% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+        100% { transform: rotate(-10deg); }
+    }
+
+
+
+.foodwindow-overlay::before,
+.foodwindow-overlay::after{
+    content:'';
+    width: 3px;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom;
+    background-color: rgba(26, 13, 0, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.foodwindow-overlay::before{
+    transform: rotate(0deg);
+}
+.foodwindow-overlay::after{
+    transform: rotate(240deg);
+}
+
+@media (max-width: 480px) {
+    h1, .window-description{
+        font-size: 1.2em;
+    }
+
+    .window-greet{
+        font-size: .8em;
+    }
+    
+}
